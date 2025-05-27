@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Slider</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 30px;
+      background: #f4f4f4;
+    }
+    .swiper {
+      width: 100%;
+      max-width: 700px;
+      height: 400px;
+    }
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+<h2>📷 Image Slider</h2>
+
+<div class="swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="https://raw.githubusercontent.com/UmeshSamartapu/Simple_Stock_Exchange_Server_API/main/assets/1%20Post%20Register%20.png" /></div>
+    <div class="swiper-slide"><img src="https://raw.githubusercontent.com/UmeshSamartapu/Simple_Stock_Exchange_Server_API/main/assets/2%20Post%20TokenGen.png" /></div>
+    <div class="swiper-slide"><img src="https://raw.githubusercontent.com/UmeshSamartapu/Simple_Stock_Exchange_Server_API/main/assets/3%20Authenticate_Me.png" /></div>
+    <div class="swiper-slide"><img src="https://raw.githubusercontent.com/UmeshSamartapu/Simple_Stock_Exchange_Server_API/main/assets/4%20Place%20Oder.png" /></div>
+    <div class="swiper-slide"><img src="https://raw.githubusercontent.com/UmeshSamartapu/Simple_Stock_Exchange_Server_API/main/assets/5%20Get%20PortFolio%20details.png" /></div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- Navigation -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.swiper', {
+    loop: true,
+    pagination: { el: '.swiper-pagination' },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+</script>
+
+</body>
+</html>
