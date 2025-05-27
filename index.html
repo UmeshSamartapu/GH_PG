@@ -2,61 +2,247 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Image Slider</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Documentation Gallery</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <style>
-    body {
-      font-family: sans-serif;
-      padding: 30px;
-      background: #f4f4f4;
+    :root {
+      --primary: #4361ee;
+      --dark: #212529;
+      --light: #f8f9fa;
+      --gray: #6c757d;
     }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: #f5f7ff;
+      color: var(--dark);
+      min-height: 100vh;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    .gallery-container {
+      position: relative;
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      background: white;
+      padding: 30px;
+    }
+    
     .swiper {
       width: 100%;
-      max-width: 700px;
-      height: 400px;
+      height: 600px;
     }
+    
+    .swiper-wrapper {
+      align-items: center;
+    }
+    
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+    }
+    
     .swiper-slide img {
-      width: 100%;
-      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
       object-fit: contain;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    .swiper-pagination-bullet {
+      width: 12px;
+      height: 12px;
+      background: white;
+      opacity: 0.6;
+    }
+    
+    .swiper-pagination-bullet-active {
+      background: var(--primary);
+      opacity: 1;
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+      background: var(--primary);
+    }
+    
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    
+    .image-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: white;
+      padding: 30px 20px 20px;
+      z-index: 10;
+      text-align: center;
+    }
+    
+    @media (max-width: 768px) {
+      .swiper {
+        height: 400px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .swiper {
+        height: 300px;
+      }
     }
   </style>
 </head>
 <body>
-
-<h2>📷 Image Slider</h2>
-
-<div class="swiper">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide"><img src="https://raw.githubusercontent.com/UmeshSamartapu/Simple_Stock_Exchange_Server_API/main/assets/1%20Post%20Register%20.png" /></div>
-    <div class="swiper-slide"><img src="https://raw.githubusercontent.com/UmeshSamartapu/Simple_Stock_Exchange_Server_API/main/assets/2%20Post%20TokenGen.png" /></div>
-    <div class="swiper-slide"><img src="https://raw.githubusercontent.com/UmeshSamartapu/Simple_Stock_Exchange_Server_API/main/assets/3%20Authenticate_Me.png" /></div>
-    <div class="swiper-slide"><img src="https://raw.githubusercontent.com/UmeshSamartapu/Simple_Stock_Exchange_Server_API/main/assets/4%20Place%20Oder.png" /></div>
-    <div class="swiper-slide"><img src="https://raw.githubusercontent.com/UmeshSamartapu/Simple_Stock_Exchange_Server_API/main/assets/5%20Get%20PortFolio%20details.png" /></div>
+  <div class="container">
+    <header>
+      <h1>API Documentation Gallery</h1>
+    </header>
+    
+    <div class="gallery-container">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="https://raw.githubusercontent.com/UmeshSamartapu/Simple_Stock_Exchange_Server_API/main/assets/1%20Post%20Register%20.png" alt="Post Register API">
+            <div class="image-info">
+              <div>POST /register</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://raw.githubusercontent.com/UmeshSamartapu/Simple_Stock_Exchange_Server_API/main/assets/2%20Post%20TokenGen.png" alt="Token Generation API">
+            <div class="image-info">
+              <div>POST /token</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://raw.githubusercontent.com/UmeshSamartapu/Simple_Stock_Exchange_Server_API/main/assets/3%20Authenticate_Me.png" alt="Authentication API">
+            <div class="image-info">
+              <div>GET /authenticate</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://raw.githubusercontent.com/UmeshSamartapu/Simple_Stock_Exchange_Server_API/main/assets/4%20Place%20Oder.png" alt="Order Placement API">
+            <div class="image-info">
+              <div>POST /orders</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://raw.githubusercontent.com/UmeshSamartapu/Simple_Stock_Exchange_Server_API/main/assets/5%20Get%20PortFolio%20details.png" alt="Portfolio API">
+            <div class="image-info">
+              <div>GET /portfolio</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
   </div>
 
-  <!-- Pagination -->
-  <div class="swiper-pagination"></div>
-
-  <!-- Navigation -->
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
-</div>
-
-<!-- JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-<script>
-  const swiper = new Swiper('.swiper', {
-    loop: true,
-    pagination: { el: '.swiper-pagination' },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  });
-</script>
-
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize Swiper with all required parameters
+      const swiper = new Swiper('.swiper', {
+        // Enable loop functionality
+        loop: true,
+        
+        // Enable pagination
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        
+        // Enable navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        
+        // Enable keyboard control
+        keyboard: {
+          enabled: true,
+        },
+        
+        // Enable mousewheel control
+        mousewheel: true,
+        
+        // Enable touch/swipe gestures
+        touchEventsTarget: 'container',
+        simulateTouch: true,
+        touchRatio: 1,
+        touchAngle: 45,
+        grabCursor: true,
+        
+        // Optional: Add autoplay
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        
+        // Ensure slides are centered
+        centeredSlides: true,
+        
+        // Smooth transitions
+        speed: 500,
+        effect: 'slide',
+      });
+      
+      console.log('Swiper initialized successfully');
+    });
+  </script>
 </body>
 </html>
